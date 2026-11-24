@@ -32,6 +32,13 @@
 > - The strict inequality is essential. For the *closed* ball {x : d(x, x₀) ≤ r}, the same argument fails at points with d(y, x₀) = r, where ε would be 0. In ℝ, [a, b] is not open for exactly this reason.
 > - In ℝⁿ with the Euclidean metric this is the familiar statement that open discs and open intervals are open sets.
 
+### Analysis of the basline prompt
+### Analysis of the baseline prompt
+The baseline prompt answers the question and completes the proof correctly. However, the output has a key weaknesses:
+
+The proof uses concepts such as a metric space without explaining them, and it never defines notation like d(x, x₀) (the distance between points x and x₀). A reader who has forgotten the material, for example one returning to it a month later, would struggle to follow the proof. The d(x, x₀) case is minor, but it shows the prompts lack of intructions leads to the AI's output not define the terms a reader needs.
+
+
 ## Technique 1 (Persona Prompting)
 ### Prompt
 > You are a Harvard mathematics professor with over 10 years of experience teaching real & complex mathematics to first-year and second-year students. Can you prove to me that the open ball is indeed open?
@@ -92,6 +99,7 @@
     - The actual claim we wish to prove
     - The proof itself
 - It provided _remarks_, which is what a lot of mathematics professors actually do in lecture notes, mimicking the persona requested well
+- It also perfroms _sanity checks_, verifying if the mathematics matches one's intuition, which is another common habit of mathematicians
 - Gave a nice ending by suggesting next steps for a student's learning
 - Utilised LaTeX (the markup language used to write mathematical papers) in their response to actually structure their proof better
 
